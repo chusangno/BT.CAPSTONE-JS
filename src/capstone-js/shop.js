@@ -36,6 +36,7 @@ const renderProducts = (arr) => {
     };
 // onclick xem chi tiec hien thi ket qua 
 
+
 //khi tăng / giảm số lượng
  
 
@@ -79,21 +80,37 @@ const renderProducts = (arr) => {
   renderProducts(filtered);
 };
 
-//  đang lỗi Không tìm thấy sản phẩm phù hợp.
-    searchBtn.addEventListener("click", applyFilterSearch);
-    searchInput.addEventListener("keypress", e => {
-      if(e.key==="Enter") applyFilterSearch();
-    });
-    filterSelect.addEventListener("change", applyFilterSearch);
-    const init = async () => {
-  const data = await getProducts();
-  console.log("API data:", data[0]); // 👈 kiểm tra field thực tế
+// Seach tim kiem san pham S Up (27/9)
+  const applyFilterSearch = () => {
+  if (!products || !products.length) {
+    productListEl.innerHTML = `<p class="text-muted">Danh sách sản phẩm trống.</p>`;
+    return;
+  }
 
-  products = data.map(i => new Product(
-    i.id, i.name, i.price, i.screen, i.backCamera, i.frontCamera,
-    i.image, i.description, i.type
-  ));
-  renderProducts(products);
+  let filtered = products;
+  const keyword = searchInput.value.toLowerCase().trim();
+  const type = filterSelect.value.toLowerCase();
+
+  console.log("🔎 keyword nhập:", keyword);
+  console.log("🔎 type chọn:", type);
+  console.log("📦 products mẫu:", products[0]);
+
+  if (type) {
+    filtered = filtered.filter(p => p.type.toLowerCase() === type);
+  }
+
+  if (keyword) {
+    filtered = filtered.filter(p => p.name.toLowerCase().includes(keyword));
+  }
+
+  console.log("✅ Kết quả lọc:", filtered);
+
+  if (!filtered.length) {
+    productListEl.innerHTML = `<p class="text-danger fw-bold">Không tìm thấy sản phẩm phù hợp.</p>`;
+    return;
+  }
+
+  renderProducts(filtered);
 };
 
     // Lấy du lieu tu API
