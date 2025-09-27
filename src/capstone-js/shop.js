@@ -53,32 +53,6 @@ const renderProducts = (arr) => {
     });
 
   
-  // Seach tim kiem san pham S
-  const applyFilterSearch = () => {
-  if (!products || !products.length) {
-    productListEl.innerHTML = `<p class="text-muted">Danh sách sản phẩm trống.</p>`;
-    return;
-  }
-
-  let filtered = products;
-  const keyword = searchInput.value.toLowerCase().trim();
-  const type = filterSelect.value.toLowerCase();
-
-  if (type) {
-    filtered = filtered.filter(p => p.type.toLowerCase() === type);
-  }
-
-  if (keyword) {
-    filtered = filtered.filter(p => p.name.toLowerCase().includes(keyword));
-  }
-
-  if (!filtered.length) {
-    productListEl.innerHTML = `<p class="text-danger fw-bold">Không tìm thấy sản phẩm phù hợp.</p>`;
-    return;
-  }
-
-  renderProducts(filtered);
-};
 
 // Seach tim kiem san pham S Up (27/9)
   const applyFilterSearch = () => {
