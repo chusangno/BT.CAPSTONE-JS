@@ -1,67 +1,124 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cửa hàng</title>
+  <title>Trang Chủ - Hệ Thống Bán Hàng</title>
 
-  <!-- bostrap cnd -->
+  <!-- Bootstrap 5 CDN -->
   <link
     href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
     rel="stylesheet"
   />
-  <!-- csss -->
-  <link rel="stylesheet" href="./index.css">
   
+  <!-- Bootstrap Icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+  />
+
+  <style>
+    body {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .main-container {
+      background: white;
+      border-radius: 20px;
+      padding: 3rem;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      max-width: 600px;
+      width: 90%;
+    }
+    .main-title {
+      color: #667eea;
+      font-weight: bold;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+    .subtitle {
+      color: #6c757d;
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+    .nav-card {
+      border: 2px solid #e9ecef;
+      border-radius: 15px;
+      padding: 2rem;
+      margin-bottom: 1.5rem;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: block;
+      background: white;
+    }
+    .nav-card:hover {
+      border-color: #667eea;
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
+    }
+    .nav-card-icon {
+      font-size: 3rem;
+      color: #667eea;
+      margin-bottom: 1rem;
+    }
+    .nav-card-title {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 0.5rem;
+    }
+    .nav-card-desc {
+      color: #6c757d;
+      margin: 0;
+    }
+    .nav-card.admin-card .nav-card-icon {
+      color: #764ba2;
+    }
+    .nav-card.admin-card:hover {
+      border-color: #764ba2;
+      box-shadow: 0 10px 30px rgba(118, 75, 162, 0.2);
+    }
+  </style>
 </head>
-<body class="container py-4">
+<body>
+  <div class="main-container">
+    <h1 class="main-title">
+      <i class="bi bi-shop"></i> Hệ Thống Bán Hàng
+    </h1>
+    <p class="subtitle">Chọn chức năng bạn muốn truy cập</p>
 
-  
-  
-  <h1 class="text-center mb-4">Danh sách sản phẩm</h1>
-  
-  <!-- Tìm kiếm & Lọc -->
-  <div class="d-flex mb-3">
-    <input type="text" id="searchInput" placeholder="Tìm kiếm theo tên..." 
-           class="form-control w-50 me-2" />
-    <button id="searchBtn" class="btn btn-primary me-2">Tìm kiếm</button>
+    <div class="navigation-links">
+      <!-- Link đến Trang Bán Hàng -->
+      <a href="./customer/index.html" class="nav-card">
+        <div class="text-center">
+          <i class="bi bi-cart-fill nav-card-icon"></i>
+          <h2 class="nav-card-title">Trang Bán Hàng</h2>
+          <p class="nav-card-desc">Xem và mua sản phẩm, quản lý giỏ hàng</p>
+        </div>
+      </a>
 
-    <select id="filterSelect" class="form-select w-25">
-      <option value="">-- Lọc theo loại --</option>
-      <option value="iphone">iPhone</option>
-      <option value="samsung">Samsung</option>
-      <option value="other">Khác</option>
-    </select>
+      <!-- Link đến Trang Quản Trị -->
+      <a href="./admin/admin.html" class="nav-card admin-card">
+        <div class="text-center">
+          <i class="bi bi-gear-fill nav-card-icon"></i>
+          <h2 class="nav-card-title">Trang Quản Trị</h2>
+          <p class="nav-card-desc">Quản lý sản phẩm: Thêm, Sửa, Xóa</p>
+        </div>
+      </a>
+    </div>
+
+    <div class="text-center mt-4">
+      <small class="text-muted">
+        <i class="bi bi-info-circle"></i> Capstone Project - JavaScript
+      </small>
+    </div>
   </div>
 
-  <!-- Danh sách sản phẩm -->
-  <div id="productList" class="d-flex flex-wrap align-items-stretch text-center"></div>
-
-  <!-- Giỏ hàng -->
-  <h2 class="mt-5">🛒 Giỏ hàng</h2>
-  <table class="table table-bordered">
-    <thead class="table-dark">
-      <tr>
-        <th>Tên sản phẩm</th>
-        <th>Giá</th>
-        <th>Số lượng</th>
-        <th>Thành tiền</th>
-        <th>Hành động</th>
-      </tr>
-    </thead>
-    <tbody id="cartBody"></tbody>
-    <tfoot>
-      <tr>
-        <td colspan="3" class="text-end"><b>Tổng cộng:</b></td>
-        <td id="cartTotal">0</td>
-        <td></td>
-      </tr>
-    </tfoot>
-  </table>
-
-  <button id="checkoutBtn" class="btn btn-success">Thanh toán</button>
-
-
-  <script type="module" src="./src/capstone-js/shop.js"></script>
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

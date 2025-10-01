@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cửa hàng</title>
+
+  <!-- bostrap cnd -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <!-- csss -->
+  <link rel="stylesheet" href="../assets/css/index.css">
+  
+</head>
+<body class="container py-4">
+
+  
+  
+  <h1 class="text-center mb-4">Danh sách sản phẩm</h1>
+  
+  <!-- Tìm kiếm & Lọc -->
+  <div class="d-flex mb-3">
+    <input type="text" id="searchInput" placeholder="Tìm kiếm theo tên..." 
+           class="form-control w-50 me-2" />
+    <button id="searchBtn" class="btn btn-primary me-2">Tìm kiếm</button>
+
+    <select id="filterSelect" class="form-select w-25">
+      <option value="">-- Lọc theo loại --</option>
+      <option value="iphone">iPhone</option>
+      <option value="samsung">Samsung</option>
+      <option value="other">Khác</option>
+    </select>
+  </div>
+
+  <!-- Danh sách sản phẩm -->
+  <div id="productList" class="d-flex flex-wrap align-items-stretch text-center"></div>
+
+  <!-- Giỏ hàng -->
+  <h2 class="mt-5">🛒 Giỏ hàng</h2>
+  <table class="table table-bordered">
+    <thead class="table-dark">
+      <tr>
+        <th>Tên sản phẩm</th>
+        <th>Giá</th>
+        <th>Số lượng</th>
+        <th>Thành tiền</th>
+        <th>Hành động</th>
+      </tr>
+    </thead>
+    <tbody id="cartBody"></tbody>
+    <tfoot>
+      <tr>
+        <td colspan="3" class="text-end"><b>Tổng cộng:</b></td>
+        <td id="cartTotal">0</td>
+        <td></td>
+      </tr>
+    </tfoot>
+  </table>
+
+  <button id="checkoutBtn" class="btn btn-success">Thanh toán</button>
+
+
+  <script type="module" src="./shop.js"></script>
+</body>
+</html>
