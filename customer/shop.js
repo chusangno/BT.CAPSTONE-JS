@@ -21,7 +21,7 @@ const renderProducts = (arr) => {
   productListEl.innerHTML = arr
     .map(
       (p) => `
-      <div class="card h-100 m-2" style="width: 18rem;">
+      <div class="card h-100">
         <img src="${p.image}" class="card-img-top" alt="${p.name}" style="width:100%; height:250px; object-fit:contain;">
         <div class="card-body d-flex flex-column">
           <h5 class="card-title">${p.name}</h5>
@@ -78,39 +78,57 @@ checkoutBtn.addEventListener("click", () => {
   const total = cart.reduce((sum, i) => sum + i.price * i.quantity, 0);
   alert(`Thanh toán thành công! Tổng tiền: $${total}`);
   cart = [];
+  saveCartToLocalStorage();
   renderCart();
 });
 
-//Hiển thị giỏ hàng
+// Hiển thị giỏ hàng dạng card
 const renderCart = () => {
   console.log("Hiển thị lại giỏ hàng");
+  
   if (cart.length === 0) {
-    cartBodyEl.innerHTML = `<tr><td colspan="5" class="text-center">Giỏ hàng trống</td></tr>`;
-    cartTotalEl.innerText = "0";
+    cartBodyEl.innerHTML = `
+      <div class="text-center py-5 text-muted">
+        <i class="bi bi-cart-x" style="font-size: 3rem;"></i>
+        <p class="mt-3">Giỏ hàng của bạn đang trống.</p>
+      </div>
+    `;
+    cartTotalEl.innerText = "$0";
     return;
   }
+  
   let htmlContent = "";
   let total = 0;
 
   cart.forEach((item) => {
     const itemTotal = item.price * item.quantity;
     total += itemTotal;
-     htmlContent += `
-      <tr>
-        <td>${item.name}</td>
-        <td>$${item.price}</td>
-        <td>
-          <button class="btn btn-sm btn-secondary" onclick="changeQuantity('${item.id}', 'decrease')">-</button>
-          <span class="mx-2">${item.quantity}</span>
-          <button class="btn btn-sm btn-secondary" onclick="changeQuantity('${item.id}', 'increase')">+</button>
-        </td>
-        <td>$${itemTotal}</td>
-        <td>
-          <button class="btn btn-sm btn-danger" onclick="removeFromCart('${item.id}')">Xóa</button>
-        </td>
-      </tr>
+    htmlContent += `
+      <div class="cart-item d-flex align-items-center mb-3">
+        <img src="${item.image}" alt="${item.name}" width="60" height="60" class="rounded me-3">
+        <div class="flex-grow-1">
+          <h6 class="mb-1">${item.name}</h6>
+          <p class="mb-1 text-muted">$${item.price} x ${item.quantity}</p>
+          <div class="d-flex align-items-center gap-2 mt-2">
+            <button class="btn btn-sm btn-outline-secondary" onclick="changeQuantity('${item.id}', 'decrease')" title="Giảm số lượng">
+              <i class="bi bi-dash"></i>
+            </button>
+            <span class="fw-bold">${item.quantity}</span>
+            <button class="btn btn-sm btn-outline-secondary" onclick="changeQuantity('${item.id}', 'increase')" title="Tăng số lượng">
+              <i class="bi bi-plus"></i>
+            </button>
+          </div>
+        </div>
+        <div class="text-end">
+          <p class="fw-bold mb-2 text-success">$${itemTotal}</p>
+          <button class="btn btn-sm btn-outline-danger" onclick="removeFromCart('${item.id}')" title="Xóa sản phẩm">
+            <i class="bi bi-trash"></i>
+          </button>
+        </div>
+      </div>
     `;
   });
+  
   // Cập nhật giao diện
   cartBodyEl.innerHTML = htmlContent;
   cartTotalEl.innerText = `$${total}`;
@@ -186,6 +204,8 @@ const init = async () => {
     const productData = await getProducts();
     products = productData;
     renderProducts(products);
+    // *** QUAN TRỌNG: Render lại giỏ hàng từ LocalStorage khi load trang
+    renderCart();
   } catch (error) {
     console.error("Đã có lỗi xảy ra khi khởi tạo ứng dụng:", error);
     productListEl.innerHTML = `<p class="text-danger">Không thể tải dữ liệu sản phẩm.</p>`;

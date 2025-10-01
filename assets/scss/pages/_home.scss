@@ -1,0 +1,107 @@
+// ===== HOME PAGE STYLES =====
+// Styles for index.html (Landing/Navigation page)
+
+body {
+  background: $bg-primary;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.main-container {
+  background: $white;
+  border-radius: $border-radius-xl;
+  padding: $spacing-xxxl;
+  box-shadow: $shadow-xxl;
+  max-width: 600px;
+  width: 90%;
+  
+  @media (max-width: $breakpoint-sm) {
+    padding: $spacing-xl;
+    width: 95%;
+  }
+}
+
+.main-title {
+  color: $primary-color;
+  font-weight: $font-weight-bold;
+  margin-bottom: $spacing-md;
+  text-align: center;
+  
+  i {
+    margin-right: $spacing-sm;
+  }
+}
+
+.subtitle {
+  color: $text-muted;
+  text-align: center;
+  margin-bottom: $spacing-xxl + $spacing-md; // 2.5rem
+}
+
+.navigation-links {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-lg;
+}
+
+.nav-card {
+  border: 2px solid $gray-200;
+  border-radius: $border-radius-lg;
+  padding: $spacing-xl;
+  margin-bottom: $spacing-lg;
+  transition: all $transition-base;
+  text-decoration: none;
+  display: block;
+  background: $white;
+  
+  &:hover {
+    border-color: $primary-color;
+    transform: translateY(-5px);
+    box-shadow: $shadow-primary;
+  }
+  
+  // Admin card variant
+  &.admin-card {
+    .nav-card-icon {
+      color: $primary-dark;
+    }
+    
+    &:hover {
+      border-color: $primary-dark;
+      box-shadow: 0 10px 30px rgba(118, 75, 162, 0.2);
+    }
+  }
+}
+
+.nav-card-icon {
+  font-size: 3rem;
+  color: $primary-color;
+  margin-bottom: $spacing-md;
+}
+
+.nav-card-title {
+  font-size: $font-size-xl + 0.25rem; // 1.5rem
+  font-weight: $font-weight-bold;
+  color: $text-color;
+  margin-bottom: $spacing-sm;
+}
+
+.nav-card-desc {
+  color: $text-muted;
+  margin: 0;
+}
+
+// Footer info
+.text-center.mt-4 {
+  margin-top: $spacing-lg;
+  
+  small {
+    color: $text-muted;
+    
+    i {
+      margin-right: $spacing-xs;
+    }
+  }
+}

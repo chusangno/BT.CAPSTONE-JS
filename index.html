@@ -16,73 +16,6 @@
     rel="stylesheet"
     href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
   />
-
-  <style>
-    body {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-    .main-container {
-      background: white;
-      border-radius: 20px;
-      padding: 3rem;
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-      max-width: 600px;
-      width: 90%;
-    }
-    .main-title {
-      color: #667eea;
-      font-weight: bold;
-      margin-bottom: 1rem;
-      text-align: center;
-    }
-    .subtitle {
-      color: #6c757d;
-      text-align: center;
-      margin-bottom: 2.5rem;
-    }
-    .nav-card {
-      border: 2px solid #e9ecef;
-      border-radius: 15px;
-      padding: 2rem;
-      margin-bottom: 1.5rem;
-      transition: all 0.3s ease;
-      text-decoration: none;
-      display: block;
-      background: white;
-    }
-    .nav-card:hover {
-      border-color: #667eea;
-      transform: translateY(-5px);
-      box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
-    }
-    .nav-card-icon {
-      font-size: 3rem;
-      color: #667eea;
-      margin-bottom: 1rem;
-    }
-    .nav-card-title {
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: #333;
-      margin-bottom: 0.5rem;
-    }
-    .nav-card-desc {
-      color: #6c757d;
-      margin: 0;
-    }
-    .nav-card.admin-card .nav-card-icon {
-      color: #764ba2;
-    }
-    .nav-card.admin-card:hover {
-      border-color: #764ba2;
-      box-shadow: 0 10px 30px rgba(118, 75, 162, 0.2);
-    }
-  </style>
 </head>
 <body>
   <div class="main-container">
@@ -120,5 +53,8 @@
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <!-- Main JS (imports SCSS) -->
+  <script type="module" src="/assets/js/main.js"></script>
 </body>
 </html>

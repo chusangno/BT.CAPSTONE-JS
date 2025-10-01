@@ -8,6 +8,7 @@ Dự án website bán hàng điện thoại với đầy đủ chức năng qu�
 - [Tính Năng](#tính-năng)
 - [Công Nghệ Sử Dụng](#công-nghệ-sử-dụng)
 - [Cấu Trúc Dự Án](#cấu-trúc-dự-án)
+- [SCSS Architecture](#scss-architecture) ⭐ **MỚI**
 - [Cài Đặt](#cài-đặt)
 - [Sử Dụng](#sử-dụng)
 - [API Endpoints](#api-endpoints)
@@ -119,6 +120,46 @@ BT.CAPSTONE-JS/
 ├── package-lock.json              # NPM lock file
 └── README.md                      # 📖 File này
 ```
+
+## 🎨 SCSS Architecture
+
+Dự án sử dụng **SCSS modular architecture** với cấu trúc chuyên nghiệp:
+
+### Cấu Trúc SCSS
+
+```
+assets/scss/
+├── _variables.scss      # 100+ biến (colors, spacing, fonts, shadows, etc.)
+├── _base.scss          # Reset CSS, animations, utility classes
+├── main.scss           # Entry point - imports tất cả
+└── pages/
+    ├── _home.scss      # Styles cho trang chủ
+    ├── _customer.scss  # Styles cho trang bán hàng
+    └── _admin.scss     # Styles cho trang quản trị
+```
+
+### Tính Năng SCSS
+
+- ✅ **100+ Variables**: Colors, spacing, typography, shadows, transitions
+- ✅ **9 Keyframe Animations**: fadeIn, fadeInUp, slideInLeft, pulse, shimmer, etc.
+- ✅ **Custom Scrollbar**: Gradient scrollbar với smooth hover
+- ✅ **Responsive Design**: Breakpoints cho mọi thiết bị
+- ✅ **Modular Structure**: Dễ maintain và scale
+- ✅ **Hot Reload**: Vite tự động compile và reload
+
+### Quick Start với SCSS
+
+```bash
+# Chạy dev server (auto-compile SCSS)
+npm run dev
+
+# Build production
+npm run build
+```
+
+**Đọc thêm:** 
+- 📘 [SCSS-RESTRUCTURE.md](./SCSS-RESTRUCTURE.md) - Tài liệu đầy đủ
+- ⚡ [QUICK-START.md](./QUICK-START.md) - Hướng dẫn nhanh
 
 ## 🚀 Cài Đặt
 
