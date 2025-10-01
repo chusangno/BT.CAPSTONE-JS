@@ -351,10 +351,9 @@ Nếu gặp lỗi CORS khi gọi API, hãy đảm bảo:
 
 ## 👨‍💻 Tác Giả
 
-**Capstone JavaScript Project**
+**Đặng Ngọc Tài**
 
-- 📧 Email: your-email@example.com
-- 🔗 GitHub: [your-github-username](https://github.com/your-username)
+- 🔗 GitHub: [taidangdev](https://github.com/taidangdev)
 
 ## 📄 License
 
