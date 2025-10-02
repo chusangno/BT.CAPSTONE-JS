@@ -1,6 +1,7 @@
 # 🛒 Hệ Thống Bán Hàng - Capstone JavaScript Project
 
 Dự án website bán hàng điện thoại với đầy đủ chức năng quản lý sản phẩm và giỏ hàng, được xây dựng bằng JavaScript thuần (Vanilla JS) và Bootstrap 5.
+## link youtobe : https://youtu.be/4_NsJcf565g
 
 ## 📋 Mục Lục
 
