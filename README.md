@@ -352,9 +352,10 @@ Nếu gặp lỗi CORS khi gọi API, hãy đảm bảo:
 ## 👨‍💻 Tác Giả
 
 **Đặng Ngọc Tài**
+**Nguyễn Văn Sang**
 
 - 🔗 GitHub: [taidangdev](https://github.com/taidangdev)
-
+- 🔗 GitHub: [chusangno](https://github.com/chusangno)
 ## 📄 License
 
 Dự án này được tạo ra cho mục đích học tập.
@@ -367,7 +368,3 @@ Dự án này được tạo ra cho mục đích học tập.
 - Axios team cho HTTP client đơn giản
 
 ---
-
-**⭐ Nếu bạn thấy dự án này hữu ích, hãy cho một star nhé!**
-
-*Được xây dựng với ❤️ và ☕*
