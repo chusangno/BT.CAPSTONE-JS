@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cửa hàng</title>
+
+  <!-- Bootstrap CDN -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  
+  <!-- Bootstrap Icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+  />
+  
+  <script type="module" crossorigin src="/BT.CAPSTONE-JS/assets/customer-CjRjdW_-.js"></script>
+  <link rel="modulepreload" crossorigin href="/BT.CAPSTONE-JS/assets/main-DC-GXSNi.js">
+  <link rel="modulepreload" crossorigin href="/BT.CAPSTONE-JS/assets/index-ngrFHoWO.js">
+  <link rel="stylesheet" crossorigin href="/BT.CAPSTONE-JS/assets/main-DbOry_Ma.css">
+</head>
+<body>
+
+  <div class="container-fluid mt-4">
+    <div class="row">
+      
+      <!-- Cột trái: Giỏ hàng -->
+      <div class="col-md-4">
+        <div class="cart-panel">
+          <div class="cart-panel__header">
+            <h2 class="cart-title">🛒 Giỏ hàng</h2>
+          </div>
+          <div class="cart-panel__body" id="cartBody">
+            <!-- Nội dung giỏ hàng sẽ được render bằng JavaScript -->
+          </div>
+          <div class="cart-panel__footer">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <span class="fw-bold fs-5">Tổng cộng:</span>
+              <span class="fw-bold fs-5 text-success" id="cartTotal">$0</span>
+            </div>
+            <button id="checkoutBtn" class="btn btn-success w-100">Thanh toán</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cột phải: Danh sách sản phẩm -->
+      <div class="col-md-8">
+        <h1 class="text-center mb-4">Danh sách sản phẩm</h1>
+        
+        <!-- Tìm kiếm & Lọc -->
+        <div class="d-flex mb-3">
+          <input type="text" id="searchInput" placeholder="Tìm kiếm theo tên..." 
+                 class="form-control w-50 me-2" />
+          <button id="searchBtn" class="btn btn-primary me-2">Tìm kiếm</button>
+
+          <select id="filterSelect" class="form-select w-25">
+            <option value="">-- Lọc theo loại --</option>
+            <option value="iphone">iPhone</option>
+            <option value="samsung">Samsung</option>
+            <option value="other">Khác</option>
+          </select>
+        </div>
+
+        <!-- Danh sách sản phẩm -->
+        <div id="productList"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Main JS (imports SCSS) -->
+  
+  <!-- Shop Logic -->
+</body>
+</html>
